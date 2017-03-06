@@ -23,20 +23,20 @@ namespace Gedcomx.Model.Test {
 
         [TestMethod]
         [UseReporter(typeof(BeyondCompareReporter))]
-        public void When_agend_is_empty() {
+        public void When_agent_is_empty() {
             ApprovalTests.Approvals.VerifyXml(Serialize(new Agent()));
         }
 
         [TestMethod]
         [UseReporter(typeof(BeyondCompareReporter))]
-        public void When_agend_has_id() {
+        public void When_agent_has_id() {
             var agent = new Agent { Id = "IamAId" };
             ApprovalTests.Approvals.VerifyXml(Serialize(agent));
         }
 
         [TestMethod]
         [UseReporter(typeof(BeyondCompareReporter))]
-        public void When_agend_has_name_mail_and_id() {
+        public void When_agent_has_name_mail_and_id() {
             var agent = (Agent)new Agent().SetName("Jane Doe").SetEmail("example@example.org").SetId("A-1");
             ApprovalTests.Approvals.VerifyXml(Serialize(agent));
 
