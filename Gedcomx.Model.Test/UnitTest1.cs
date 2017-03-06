@@ -41,5 +41,14 @@ namespace Gedcomx.Model.Test {
             ApprovalTests.Approvals.VerifyXml(Serialize(agent));
 
         }
+
+        [TestMethod]
+        [UseReporter(typeof(BeyondCompareReporter))]
+        public void When_agent_has_online_account() {
+            var agent = new Agent();
+            agent.AddAccount(new OnlineAccount() {AccountName = "AccountName", Id = "onlineAccountId"});
+            ApprovalTests.Approvals.VerifyXml(Serialize(agent));
+
+        }
     }
 }
