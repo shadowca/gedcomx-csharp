@@ -27,7 +27,7 @@ namespace Gx.Agent
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://gedcomx.org/v1/", ElementName = "agent")]
     public partial class Agent : Gx.Links.HypermediaEnabledData
     {
-        private System.Collections.Generic.List<Gx.Agent.OnlineAccount> _accounts;
+        private System.Collections.Generic.List<Gx.Agent.OnlineAccount> _accounts =new List<OnlineAccount>();
         private System.Collections.Generic.List<Gx.Agent.Address> _addresses;
         private System.Collections.Generic.List<Gx.Common.ResourceReference> _emails;
         private Gx.Common.ResourceReference _homepage;

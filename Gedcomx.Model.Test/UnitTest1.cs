@@ -50,5 +50,28 @@ namespace Gedcomx.Model.Test {
             ApprovalTests.Approvals.VerifyXml(Serialize(agent));
 
         }
+
+        [TestMethod]
+        [UseReporter(typeof(BeyondCompareReporter))]
+        public void When_agent_has_address() {
+            var agent = new Agent();
+            agent.SetAddress(CreateAddress());
+            ApprovalTests.Approvals.VerifyXml(Serialize(agent));
+
+        }
+
+         [TestMethod]
+        [UseReporter(typeof(BeyondCompareReporter))]
+        public void When_agent_has_more_than_one_address() {
+            var agent = new Agent();
+            agent.SetAddress(CreateAddress());
+            agent.SetAddress(CreateAddress());
+            ApprovalTests.Approvals.VerifyXml(Serialize(agent));
+
+        }
+
+        private static Address CreateAddress() {
+            return new Address() {City = "City", Country = "Country", PostalCode = "PostalCode", Street = "Street", StateOrProvince = "StateOrProvince"};
+        }
     }
 }

@@ -1,0 +1,16 @@
+﻿<agent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://gedcomx.org/v1/">
+  <address>
+    <city>City</city>
+    <country>Country</country>
+    <postalCode>PostalCode</postalCode>
+    <stateOrProvince>StateOrProvince</stateOrProvince>
+    <street>Street</street>
+  </address>
+  <address>
+    <city>City</city>
+    <country>Country</country>
+    <postalCode>PostalCode</postalCode>
+    <stateOrProvince>StateOrProvince</stateOrProvince>
+    <street>Street</street>
+  </address>
+</agent>
