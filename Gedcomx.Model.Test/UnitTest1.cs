@@ -37,7 +37,13 @@ namespace Gedcomx.Model.Test {
         [TestMethod]
         [UseReporter(typeof(BeyondCompareReporter))]
         public void When_agent_has_name_mail_and_id() {
-            var agent = (Agent)new Agent().SetName("Jane Doe").SetEmail("example@example.org").SetId("A-1");
+            var agent = new Agent();
+
+            agent
+            .SetName("Jane Doe")
+            .SetEmail("example@example.org")
+            .SetId("A-1");
+
             ApprovalTests.Approvals.VerifyXml(Serialize(agent));
 
         }
@@ -46,9 +52,13 @@ namespace Gedcomx.Model.Test {
         [UseReporter(typeof(BeyondCompareReporter))]
         public void When_agent_has_online_account() {
             var agent = new Agent();
-            agent.AddAccount(new OnlineAccount() {AccountName = "AccountName", Id = "onlineAccountId"});
+            agent.AddAccount(CreateOnlineAccount());
             ApprovalTests.Approvals.VerifyXml(Serialize(agent));
 
+        }
+
+        private static OnlineAccount CreateOnlineAccount() {
+            return new OnlineAccount() { AccountName = "AccountName", Id = "onlineAccountId" };
         }
 
         [TestMethod]
@@ -60,7 +70,7 @@ namespace Gedcomx.Model.Test {
 
         }
 
-         [TestMethod]
+        [TestMethod]
         [UseReporter(typeof(BeyondCompareReporter))]
         public void When_agent_has_more_than_one_address() {
             var agent = new Agent();
@@ -71,7 +81,7 @@ namespace Gedcomx.Model.Test {
         }
 
         private static Address CreateAddress() {
-            return new Address() {City = "City", Country = "Country", PostalCode = "PostalCode", Street = "Street", StateOrProvince = "StateOrProvince"};
+            return new Address() { City = "City", Country = "Country", PostalCode = "PostalCode", Street = "Street", StateOrProvince = "StateOrProvince" };
         }
     }
 }
